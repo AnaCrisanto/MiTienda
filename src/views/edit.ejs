@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Actualizar Producto</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page" data-theme="a">
+        <div data-role="header" data-theme="b">
+            <h1>Mi Tienda</h1>
+            <div data-role="navbar" data-iconpos="left">
+                <ul>
+                    <li><a data-icon="home" data-theme="">Inicio</a></li>
+                    <li><a data-icon="plus" data-theme="">Agregar Producto</a></li>
+                    <li><a data-icon="grid" data-theme="">Productos</a></li>
+                </ul>
+            </div>
+        </div>
+        
+   <!--Muestra el formulario-->
+   <form method="POST">
+    <input type="text" name="barcode" placeholder="Codigo de barras" value="<%=product.barcode %>">
+    <input type="text" name="description" placeholder="Descripcion" value="<%=product.brand %>">
+    <input type="text" name="brand" placeholder="Marca" value="<%=product.price %>">
+    <input type="number" name="price" placeholder="Precio de compra" value="<%=product.price %>">
+    <input type="number" name="cost" placeholder="Precio de venta" value="<%=product.cost %>">
+    <input type="number" name="stock" placeholder="Existencias" value="<%=product.stock %>">
+    <input type="date" name="expiredDate" placeholder="" value="<%=product.expiredDate %>">
+    <label for="flip-2">Activo:</label>
+    <select name="status" id="flip-6" data-role="slider" data-mini="true">
+             <option value="0" <%= product.status=0?"selected":"" %>>No</option>
+             <option value="1" <%= product.status=1?"selected":"" %>>Si</option>
+    </select>
+        <input data-icon="check" type="submit" value="Actualizar" data-theme="b">
+ 
+</div>
+</form>
+
+</body>
+</html>
+
+
+

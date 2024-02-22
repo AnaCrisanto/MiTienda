@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Productos</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page" data-theme="a">
+        <div data-role="header" data-theme="b">
+            <h1>Mi Tienda</h1>
+            <div data-role="navbar" data-iconpos="left">
+                <ul>
+                    <li><a data-icon="home" data-theme="">Inicio</a></li>
+                    <li><a data-icon="plus" data-theme="">Agregar Producto</a></li>
+                    <li><a data-icon="grid" data-theme="">Productos</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div role="content" class="ui-content">
+            <form action="" method="POST">
+                
+                    <label for="barcode">Codigo de barras:</label>
+                    <input type="number" name="barcode" id="barcode">
+                    
+                    <label for="description">Descripcion:</label>
+                    <input type="text" name="description" id="description">
+
+                    <label for="brand">Marca:</label>
+                    <input type="text" name="brand" id="brand">
+                
+                    <label for="price">Precio de compra</label>
+                    <input type="number" name="price" id="price">
+                
+                    <label for="cost">Precio de venta</label>
+                    <input type="number" name="cost" id="cost">
+                    
+                    <label for="stock">En existencia</label>
+                    <input type="number" name="stock" id="stock">
+
+                    <label for="expiredDate">caducidad</label>
+                    <input type="date" name="expiredDate" id="expiredDate">
+
+                    <label for="flip-2">Activo:</label>
+                    <select name="status" id="flip-6" data-role="slider" data-mini="true">
+                             <option value="0">No</option>
+                             <option value="1">Si</option>
+                    </select>
+                    <button type="submit" value="Registrar" data-theme="b" >Registrar</button>
+                </form>
+                    
+        </div>
+        
+            
+<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+        <h4>Productos</h4>
+       
+    <% products.forEach((product)=>{ %>
+        <div data-role="collapsible" data-filter="<%= product.description %>">
+            <h1><%=product.description %></h1>
+            <ul data-role="listview" data-insert="false">
+                <li>Codigo de barras : <%=product.barcode %></li>
+                <li>Marca : <%=product.brand %></li>
+                <li>Precio de compra : <%=product.price %></li>
+                <li>Precio de venta: <%=product.cost %></li>
+                <li>Existencias : <%=product.stock %></li>
+                <li>Fecha de caducidad : <%=product.expiredDate %></li>
+                <li>Status: <%=product.status %></li>
+               
+                <a href="/api/products/<%=product.barcode %>" class="ui-btn ui-btn-inline">Editar</a>
+                <form action="/api/products/delete/<%= product.barcode %>"  method="get"> 
+                    <li>
+                        <button type="submit" id="submit-6" class="ui-btn ui-btn-inline">Eliminar</button>
+                      
+                    </li>
+                    </form>                        
+                </ul>
+            
+        </div>      
+    <% }) %>
+</div>
+        </div>
+        <div data-role="footer">
+            <h4>Ana</h4>
+        </div>
+    </div>
+
+  
+</body>
+</html>
