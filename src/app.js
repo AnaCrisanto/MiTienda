@@ -1,7 +1,7 @@
 // Importa las bibliotecas necesarias de Node.js y de terceros.
 import express, { urlencoded } from "express";
 // import morgan from "morgan";
-// import { config } from "dotenv";
+import { config } from "dotenv";
 import productsRouter from "./routes/products.routes.js";
 config();
 
