@@ -1,11 +1,9 @@
 // Importa las bibliotecas necesarias de Node.js y de terceros.
-import express from "express";
+import express, { urlencoded } from "express";
 import morgan from "morgan";
-import dotenv from "dotenv";  // Importa dotenv directamente
-
-dotenv.config();  // Configura dotenv
-
+import { config } from "dotenv";
 import productsRouter from "./routes/products.routes.js";
+config();
 
 const app = express();
 
