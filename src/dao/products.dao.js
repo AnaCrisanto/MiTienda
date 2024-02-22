@@ -13,6 +13,26 @@ productDAO.getAll = async () => {
     }
 };
 
+productDAO.mostrarInicio = async () => {
+    try {
+        const products = await Product.find();
+        return products;
+    } catch (error) {
+        console.error('Error al obtener todos los productos:', error);
+        throw error;
+    }
+};
+
+productDAO.mostrarProductos = async () => {
+    try {
+        const products = await Product.find();
+        return products;
+    } catch (error) {
+        console.error('Error al obtener todos los productos:', error);
+        throw error;
+    }
+};
+
 productDAO.getOne=async(bc)=>{
     const product=await Product.findOne({barcode:bc});
     return product;

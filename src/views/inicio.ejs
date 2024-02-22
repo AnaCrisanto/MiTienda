@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Inicio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+<body>
+   
+
+
+        </div>
+    <div data-role="navbar" data-iconpos="left">
+       
+        <div class="ui-shadow ui-btn ui-corner-all ui-icon-plus ui-btn-b">
+            <h1>Bienvenido a la Tienda "La Reliquia" </h1>
+        </div>
+        <ul>
+            <li><a data-icon="home" data-theme="b" >Inicio</a></li>
+            <li><a data-icon="plus" data-theme="b" href="/api/products/<%=products.barcode %>">Agregar Producto</a></li>
+            <li><a data-icon="grid" data-theme="b" href="/api/products/muestra<%=products.barcode %>">Productos</a></li>
+        </ul>
+    </div>
+</body>
+</html>

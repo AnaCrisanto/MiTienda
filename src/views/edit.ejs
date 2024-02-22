@@ -10,13 +10,13 @@
 <body>
 
     <div data-role="page" data-theme="a">
-        <div data-role="header" data-theme="b" >
+        <div data-role="header" data-theme="b">
             <h1>Mi Tienda</h1>
             <div data-role="navbar" data-iconpos="left">
                 <ul>
-                    <li><a data-icon="home" data-theme="">Inicio</a></li>
-                    <li><a data-icon="plus" data-theme="">Agregar Producto</a></li>
-                    <li><a data-icon="grid" data-theme="">Productos</a></li>
+                    <li><a data-icon="home" data-theme="b" href="/api/products/productos<%=products.barcode %>" method="get">Inicio</a></li>
+                    <li><a data-icon="plus" data-theme="b" href="/api/products/<%=products.barcode %>">Agregar Producto</a></li>
+                    <li><a data-icon="grid" data-theme="b" href="/api/products/muestra<%=products.barcode %>" method="GET">Productos</a></li>
                 </ul>
             </div>
         </div>

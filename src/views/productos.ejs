@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Productos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+<body>
+       <div data-role="header" data-theme="b">
+            <h1>Productos</h1>
+        </div>
+        <% products.forEach((product)=>{ %>
+            <div  data-expanded-icon="eye" data-role="collapsible" data-filter="<%= product.description %>">
+                <h1><%=product.description %></h1>
+                <ul data-role="listview" data-inset="true">
+                    <li>Codigo de barras : <%=product.barcode %></li>
+                    <li>Descripcion: <%=product.description %></li>
+                    <li>Marca : <%=product.brand %></li>
+                    <li>Precio de compra : <%=product.price %></li>
+                    <li>Precio de venta: <%=product.cost %></li>
+                    <li>Existencias : <%=product.stock %></li>
+                    <li>Fecha de caducidad : <%=product.expiredDate %></li>
+                    <li>Status: <%=product.status %></li>
+                   
+                    <a href="/api/products/<%=product.barcode %>" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-edit ui-btn-b">Editar</a>
+                    <form action="/api/products/delete/<%= product.barcode %>"  method="get"> 
+                        <li>
+                            <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-b">Eliminar</button>
+                          
+                        </li>
+                        </form>                        
+                    </ul>
+                
+            </div>      
+        <% }) %>
+    </div>
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+            <li><a data-icon="home" data-theme="b" href="/api/products/productos<%=products.barcode %>" method="get">Inicio</a></li>
+            <li><a data-icon="plus" data-theme="b" href="/api/products/<%=products.barcode %>">Agregar Producto</a></li>
+            <li><a data-icon="grid" data-theme="b" href="/api/products/muestra<%=products.barcode %>">Productos</a></li>
+        </ul>
+    </div>  
+</body>
+</html>

@@ -7,6 +7,19 @@ export const getAll = (req, res) => {
     }));      
     }    
 
+export const mostrarInicio = (req, res) => {
+        productDAO.getAll()
+        .then(products => res.render('../src/views/inicio.ejs',{products}))
+            .catch(err=>res.json({status:"Servidor no disponible"
+        }));      
+        }    
+export const mostrarProductos = (req, res) => {
+            productDAO.getAll()
+            .then(products => res.render('../src/views/productos.ejs',{products}))
+                .catch(err=>res.json({status:"Servidor no disponible"
+            }));      
+            }  
+
 export const getOne = (req, res) => {
     productDAO.getOne(req.params.barcode)
     .then(product => res.render('../src/views/edit.ejs',{product}))
