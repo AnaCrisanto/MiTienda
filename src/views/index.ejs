@@ -12,13 +12,7 @@
     <div data-role="page" data-theme="a">
         <div data-role="header" data-theme="b">
             <h1>Mi Tienda</h1>
-            <div data-role="navbar" data-iconpos="left">
-                <ul>
-                    <li><a data-icon="home" data-theme="">Inicio</a></li>
-                    <li><a data-icon="plus" data-theme="">Agregar Producto</a></li>
-                    <li><a data-icon="grid" data-theme="">Productos</a></li>
-                </ul>
-            </div>
+            
         </div>
         
         <div role="content" class="ui-content">
@@ -50,11 +44,10 @@
                              <option value="0">No</option>
                              <option value="1">Si</option>
                     </select>
-                    <button type="submit" value="Registrar" data-theme="b" >Registrar</button>
+                    <button type="submit" value="Registrar" data-theme="b" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-b" >Agregar</button>
                 </form>
-                    
         </div>
-        
+
             
 <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-theme="b" data-content-theme="a">
         <h4>Productos</h4>
@@ -62,7 +55,7 @@
     <% products.forEach((product)=>{ %>
         <div data-role="collapsible" data-filter="<%= product.description %>">
             <h1><%=product.description %></h1>
-            <ul data-role="listview" data-insert="false">
+            <ul data-role="listview" data-inset="true">
                 <li>Codigo de barras : <%=product.barcode %></li>
                 <li>Descripcion: <%=product.description %></li>
                 <li>Marca : <%=product.brand %></li>
@@ -72,10 +65,10 @@
                 <li>Fecha de caducidad : <%=product.expiredDate %></li>
                 <li>Status: <%=product.status %></li>
                
-                <a href="/api/products/<%=product.barcode %>" class="ui-btn ui-btn-inline">Editar</a>
+                <a href="/api/products/<%=product.barcode %>" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-edit ui-btn-b">Editar</a>
                 <form action="/api/products/delete/<%= product.barcode %>"  method="get"> 
                     <li>
-                        <button type="submit" id="submit-6" class="ui-btn ui-btn-inline">Eliminar</button>
+                        <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-b">Eliminar</button>
                       
                     </li>
                     </form>                        
@@ -84,11 +77,15 @@
         </div>      
     <% }) %>
 </div>
+<div data-role="navbar" data-iconpos="left">
+    <ul>
+        <li><a data-icon="home" data-theme="b">Inicio</a></li>
+        <li><a data-icon="plus" data-theme="b">Agregar Producto</a></li>
+        <li><a data-icon="grid" data-theme="b">Productos</a></li>
+    </ul>
+</div>
         </div>
-        <div data-role="footer">
-            <h4>Ana</h4>
-        </div>
-    </div>
+       
 
   
 </body>
