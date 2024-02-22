@@ -47,8 +47,8 @@
 
                     <label for="flip-2">Activo:</label>
                     <select name="status" id="flip-6" data-role="slider" data-mini="true">
-                             <option value="0">No</option>
-                             <option value="1">Si</option>
+                         <option value="0">No</option>
+                         <option value="1">Si</option>
                     </select>
                     <button type="submit" value="Registrar" data-theme="b" >Registrar</button>
                 </form>
@@ -57,8 +57,8 @@
         
             
 <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-theme="b" data-content-theme="a">
-        <h4>Productos</h4>
-       
+    <h4>Productos</h4>
+    
     <% products.forEach((product)=>{ %>
         <div data-role="collapsible" data-filter="<%= product.description %>">
             <h1><%=product.description %></h1>
