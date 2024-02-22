@@ -71,8 +71,8 @@
                 <li>Fecha de caducidad : <%=product.expiredDate %></li>
                 <li>Status: <%=product.status %></li>
                
-                <a href="/api/products/<%=product.barcode %>" class="ui-btn ui-btn-inline">Editar</a>
-                <form action="/api/products/delete/<%= product.barcode %>"  method="get"> 
+                <a href="/<%=product.barcode %>" class="ui-btn ui-btn-inline">Editar</a>
+                <form action="/delete/<%= product.barcode %>"  method="get"> 
                     <li>
                         <button type="submit" id="submit-6" class="ui-btn ui-btn-inline">Eliminar</button>
                       
