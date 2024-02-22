@@ -53,7 +53,7 @@
         <h4>Productos</h4>
        
     <% products.forEach((product)=>{ %>
-        <div data-role="collapsible" data-filter="<%= product.description %>">
+        <div  data-expanded-icon="eye" data-role="collapsible" data-filter="<%= product.description %>">
             <h1><%=product.description %></h1>
             <ul data-role="listview" data-inset="true">
                 <li>Codigo de barras : <%=product.barcode %></li>
