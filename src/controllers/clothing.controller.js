@@ -53,3 +53,10 @@ export const homeClothing = (req, res) => {
         .then(products => res.render('../src/views/inicio.ejs', { products }))
         .catch(err => res.json({ status: "Servidor no disponible" }));
 };
+
+
+export const info = (req, res) => {
+    clothingDAO.info()
+        .then(products => res.render('../src/views/info.ejs', { products }))
+        .catch(err => res.json({ status: "Servidor no disponible" }));
+};

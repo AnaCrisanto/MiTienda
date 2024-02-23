@@ -61,4 +61,14 @@ clothingDAO.homeClothing = async () => {
     }
 };
 
+clothingDAO.info = async () => {
+    try {
+        const clothing = await Clothing.find();
+        return clothing;
+    } catch (error) {
+        console.error('Error al obtener toda la ropa:', error);
+        throw error;
+    }
+};
+
 export default clothingDAO;
