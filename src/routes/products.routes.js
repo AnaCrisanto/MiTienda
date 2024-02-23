@@ -1,12 +1,13 @@
 import { Router } from "express";
-import { getAll, getOne, insertProduct, updateProduct, deleteProduct, mostrarInicio,mostrarProductos} from "../controllers/products.controller.js";
-const router= Router();
+import { getAllClothing, getOneClothing, insertClothing, updateClothing, deleteClothing, homeClothing } from "../controllers/clothing.controller.js";
 
-router.get('/', getAll);
-router.get('/productos', mostrarInicio)
-router.get('/muestra', mostrarProductos)
-router.get('/:barcode', getOne)
-router.post('/', insertProduct)
-router.post('/:barcode', updateProduct)
-router.get('/delete/:bc', deleteProduct);
-export default router; 
+const router = Router();
+
+router.get('/', getAllClothing);
+router.get('/home', homeClothing);
+router.get('/:barcode', getOneClothing);
+router.post('/', insertClothing);
+router.post('/:barcode', updateClothing);
+router.get('/delete/:bc', deleteClothing);
+
+export default router;
