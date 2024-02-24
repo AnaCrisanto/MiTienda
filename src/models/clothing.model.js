@@ -13,7 +13,7 @@ const clothingSchema = new Schema({
     size: String,
     color: String,
     stock: Number,
-    status: Number
+    status: String
 }, {
     versionKey: false,
     timestamps: true

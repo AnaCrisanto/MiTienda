@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+ 
 </head>
 <body>
 
@@ -46,38 +47,47 @@
 
                 <label for="flip-2">Disponible:</label>
                 <select name="status" id="flip-6" data-role="slider" data-mini="true">
-                     <option value="0">No</option>
-                     <option value="1">Sí</option>
+                     <option value="No">No</option>
+                     <option value="Si">Sí</option>
                 </select>
                 <button type="submit" value="Registrar" data-theme="b">Registrar</button>
             </form>
                     
         </div>
         
-        <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-theme="b" data-content-theme="a">
-            <h4>Productos de Ropa</h4>
-            <% products.forEach((product) => { %>
-                <div data-role="collapsible" data-filter="<%= product.description %>">
-                    <h1><%= product.description %></h1>
-                    <ul data-role="listview" data-insert="false">
-                        <li>Código de barras: <%= product.barcode %></li>
-                        <li>Marca: <%= product.brand %></li>
-                        <li>Precio: <%= product.price %></li>
-                        <li>Tamaño: <%= product.size %></li>
-                        <li>Color: <%= product.color %></li>
-                        <li>Existencias: <%= product.stock %></li>
-                        <li>Disponible: <%= product.status %></li>
-                        <a href="/api/clothing/<%= product.barcode %>" class="ui-btn ui-btn-inline">Editar</a>
+        <div class="lista">
+        
+            <ul data-role="listview" data-inset="true" data-theme="b" data-divider-theme="a" data-count-theme="a" class="listview">
+                <% products.forEach((product) => { %>
+                <li>
+                    
+                        <h2><%= product.description %></h2>
+                        <p><strong>Código de barras:</strong> <%= product.barcode %></p>
+                
+                        <p><strong>Marca:</strong> <%= product.brand %></p>
+                        <p><strong>Precio:</strong> <%= product.price %></p>
+                        <p><strong>Tamaño:</strong> <%= product.size %></p>
+                        <p><strong>Color:</strong> <%= product.color %></p>
+                        <p><strong>Existencias:</strong> <%= product.stock %></p>
+                        <p><strong>Disponible:</strong> <%= product.status %></p>
+                        <a href="/api/clothing/<%= product.barcode %>" class="ui-btn ui-btn-inline" data-theme="b">Editar</a>
                         <form action="/api/clothing/delete/<%= product.barcode %>" method="get"> 
                             <li>
                                 <button type="submit" id="submit-6" class="ui-btn ui-btn-inline">Eliminar</button>
                             </li>
-                        </form>                        
-                    </ul>
-                </div>      
-            <% }) %>
+                        </form>     
+                      
+                
+                </li>
+                
+                <% }) %>
+            </ul>
+            
         </div>
-        
+
+      
+
+
         <div data-role="footer">
             <h4>Ana</h4>
         </div>
